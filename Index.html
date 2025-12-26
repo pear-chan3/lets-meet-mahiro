@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        body { margin: 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); font-family: 'Segoe UI', sans-serif; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; text-align: center; }
+        h1 { color: white; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #f0f0f0; font-size: 1.2em; margin-bottom: 30px; }
+        iframe { width: 100%; height: 70vh; border-radius: 15px; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .features { color: white; margin-top: 20px; }
+        .features ul { list-style: none; padding: 0; }
+        .features li { margin: 10px 0; font-size: 1.1em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome back to your Home</h1>
+        <p class="subtitle">Talk・Chat・Image・Screen</p>
+        <iframe 
+            src="https://kosmi.io/room/demo-room?embed=1" 
+            allow="camera; microphone; fullscreen; display-capture" 
+            allowfullscreen>
+        </iframe>
+        <div class="features">
+            <ul>
+                <li>✅ Talk（自動許可）</li>
+                <li>✅ Chat</li>
+                <li>✅ Image</li>
+                <li>✅ Screen</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
