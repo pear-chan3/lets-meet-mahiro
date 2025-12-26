@@ -1,36 +1,107 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-    <style>
-        body { margin: 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); font-family: 'Segoe UI', sans-serif; min-height: 100vh; }
-        .container { max-width: 1200px; margin: 0 auto; text-align: center; }
-        h1 { color: white; font-size: 2.5em; margin-bottom: 10px; }
-        .subtitle { color: #f0f0f0; font-size: 1.2em; margin-bottom: 30px; }
-        iframe { width: 100%; height: 70vh; border-radius: 15px; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        .features { color: white; margin-top: 20px; }
-        .features ul { list-style: none; padding: 0; }
-        .features li { margin: 10px 0; font-size: 1.1em; }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Home!</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #121212;
+      color: #f5f5f5;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding: 10px 16px;
+      background: #1f1f1f;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+    header h1 {
+      font-size: 18px;
+      margin: 0;
+    }
+    header span {
+      font-size: 13px;
+      color: #aaa;
+    }
+    .layout {
+      flex: 1;
+      display: flex;
+      min-height: 0;
+    }
+    .pane {
+      flex: 1;
+      min-width: 0;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #333;
+    }
+    .pane:last-child {
+      border-right: none;
+    }
+    .pane-header {
+      padding: 6px 10px;
+      font-size: 13px;
+      background: #1a1a1a;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+    .notice {
+      font-size: 11px;
+      color: #bbb;
+    }
+    @media (max-width: 900px) {
+      .layout { flex-direction: column; }
+      .pane { border-right: none; border-bottom: 1px solid #333; height: 50vh; }
+      .pane:last-child { border-bottom: none; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome back to your Home</h1>
-        <p class="subtitle">Talk・Chat・Image・Screen</p>
-        <iframe 
-            src="https://kosmi.io/room/demo-room?embed=1" 
-            allow="camera; microphone; fullscreen; display-capture" 
-            allowfullscreen>
-        </iframe>
-        <div class="features">
-            <ul>
-                <li>✅ Talk（自動許可）</li>
-                <li>✅ Chat</li>
-                <li>✅ Image</li>
-                <li>✅ Screen</li>
-            </ul>
-        </div>
-    </div>
+  <header>
+    <h1>Home!</h1>
+    <span>左: 通話 / 右: ボード</span>
+  </header>
+
+  <div class="layout">
+    <!-- 左：Jitsi通話 -->
+    <section class="pane">
+      <div class="pane-header">
+        <span>📹 通話（Jitsi）</span>
+        <span class="notice">カメラ・マイク許可が必要です</span>
+      </div>
+      <iframe
+        src="https://meet.jit.si/your-home"
+        allow="camera; microphone; display-capture; fullscreen"
+        allowfullscreen>
+      </iframe>
+    </section>
+
+    <!-- 右：共有ボード（Excalidraw）-->
+    <section class="pane">
+      <div class="pane-header">
+        <span>📝 共有ボード（Excalidraw）</span>
+        <span class="notice">上のメニューから「Share」→「Live Collaboration」でリンク共有</span>
+      </div>
+      <iframe
+        src="https://excalidraw.com"
+        allowfullscreen>
+      </iframe>
+    </section>
+  </div>
 </body>
 </html>
